@@ -23,6 +23,37 @@
   --font-mono: var(--font-mono);
 }
 
+/* Light theme (default) */
+:root {
+  --color-brand: #111111; /* primary text and brand accents */
+  --color-secondary: #5f6b7a;
+  --color-bg: #ffffff;
+  --color-tx: #111111;
+  --color-hr: #e5e7eb; /* neutral divider */
+  --color-selected: #1f6feb; /* subtle blue selection/accent */
+  --color-run-date: #6b7280; /* muted gray for dates */
+  --color-run-table-thead: #4b5563; /* darker header text */
+  --color-run-row-hover-background: #f7f8fa; /* very light hover */
+  --color-activity-card: #ffffff; /* white cards on white bg; rely on shadows/borders in components */
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+[data-theme='light'] {
+  --color-brand: #111111;
+  --color-secondary: #5f6b7a;
+  --color-bg: #ffffff;
+  --color-tx: #111111;
+  --color-hr: #e5e7eb;
+  --color-selected: #1f6feb;
+  --color-run-date: #6b7280;
+  --color-run-table-thead: #4b5563;
+  --color-run-row-hover-background: #f7f8fa;
+  --color-activity-card: #ffffff;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     /* const nike = 'rgb(224,237,94)'; */
