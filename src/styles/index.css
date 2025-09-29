@@ -27,7 +27,7 @@
 :root {
   --color-brand: #111111; /* primary text and brand accents */
   --color-secondary: #5f6b7a;
-  --color-bg: #ffffff;
+  --color-bg: #f6f7f9;
   --color-tx: #111111;
   --color-hr: #e5e7eb; /* neutral divider */
   --color-selected: #1f6feb; /* subtle blue selection/accent */
@@ -42,7 +42,7 @@
 [data-theme='light'] {
   --color-brand: #111111;
   --color-secondary: #5f6b7a;
-  --color-bg: #ffffff;
+  --color-bg: #f6f7f9;
   --color-tx: #111111;
   --color-hr: #e5e7eb;
   --color-selected: #1f6feb;
@@ -57,12 +57,12 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme]) {
     /* const nike = 'rgb(224,237,94)'; */
-    --color-brand: #e0ed5e;
+    --color-brand: #acbcf9;
     --color-secondary: #ccd94a;
     --color-bg: #1a1a1a;
-    --color-tx: #e0ed5e;
-    --color-hr: #fb2c36;
-    --color-selected: #e0ed5e;
+    --color-tx: #acbcf9;
+    --color-hr: #2ccbfb46;
+    --color-selected: #acbcf9;
     --color-run-date: #dddddd;
     --color-run-table-thead: #cccccc;
     --color-run-row-hover-background: #242424;
@@ -74,12 +74,12 @@
 
 [data-theme='dark'] {
   /* const nike = 'rgb(224,237,94)'; */
-  --color-brand: #e0ed5e;
+  --color-brand: #acbcf9;
   --color-secondary: #ccd94a;
   --color-bg: #1a1a1a;
-  --color-tx: #e0ed5e;
-  --color-hr: #fb2c36;
-  --color-selected: #e0ed5e;
+  --color-tx: #acbcf9;
+  --color-hr: #2ccbfb46;
+  --color-selected: #acbcf9;
   --color-run-date: #dddddd;
   --color-run-table-thead: #cccccc;
   --color-run-row-hover-background: #242424;

@@ -284,9 +284,9 @@ const getActivitySport = (act: Activity): string => {
   if (act.type === 'Run') {
     if (act.subtype === 'generic') {
       const runDistance = act.distance / 1000;
-      if (runDistance > 20 && runDistance < 40) {
+      if (runDistance >= 21 && runDistance < 42) {
         return RUN_TITLES.HALF_MARATHON_RUN_TITLE;
-      } else if (runDistance >= 40) {
+      } else if (runDistance >= 42) {
         return RUN_TITLES.FULL_MARATHON_RUN_TITLE;
       }
       return ACTIVITY_TYPES.RUN_GENERIC_TITLE;
@@ -324,10 +324,10 @@ const titleForRun = (run: Activity): string => {
   // 3. use time+length if location or type is not available
   const runDistance = run.distance / 1000;
   const runHour = +run.start_date_local.slice(11, 13);
-  if (runDistance > 20 && runDistance < 40) {
+  if (runDistance >= 21 && runDistance < 42) {
     return RUN_TITLES.HALF_MARATHON_RUN_TITLE;
   }
-  if (runDistance >= 40) {
+  if (runDistance >= 42) {
     return RUN_TITLES.FULL_MARATHON_RUN_TITLE;
   }
   if (runHour >= 0 && runHour <= 10) {
