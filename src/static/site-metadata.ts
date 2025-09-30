@@ -21,6 +21,10 @@ const data: ISiteMetadataResult = {
       name: 'Summary',
       url: 'summary',
     },
+    {
+      name:'Github',
+      url:'https://github.com/xthirty77/running_page'
+    }
   ],
 };
 

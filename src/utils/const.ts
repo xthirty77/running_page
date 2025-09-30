@@ -61,7 +61,7 @@ const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
 
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
-  '我跑过了一些地方，希望随着时间推移，地图点亮的地方越来越多';
+  '世界因跑步而明亮';
 const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来，不要停下奔跑的脚步';
 
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
@@ -160,7 +160,7 @@ export {
   HOME_PAGE_TITLE,
 };
 
-const nike = 'rgb(224,237,94)'; // if you want change the main color change here src/styles/variables.scss
+const nike = 'rgb(191, 241, 251)'; // if you want change the main color change here src/styles/variables.scss
 const dark_vanilla = 'rgb(228,212,220)';
 
 // If your map has an offset please change this line
@@ -182,7 +182,7 @@ export const SWIMMING_COLOR = 'rgb(255,51,51)';
 export const MAP_TILE_VENDOR = 'mapbox';
 
 // map tiles style name, see MAP_TILE_STYLES for more details
-export const MAP_TILE_STYLE = 'dark-v10';
+export const MAP_TILE_STYLE = 'dark-v11';
 
 // access token. you can apply a new one, it's free.
 // maptiler: Gt5R0jT8tuIYxW6sNrAg | sign up at https://cloud.maptiler.com/auth/widget
@@ -216,6 +216,8 @@ export const MAP_TILE_STYLES = {
     'dark-v11': 'mapbox://styles/mapbox/dark-v11',
     'navigation-night': 'mapbox://styles/mapbox/navigation-night-v1',
     'satellite-streets-v12': 'mapbox://styles/mapbox/satellite-streets-v12',
+    'decimal':'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d'
   },
-  default: 'mapbox://styles/mapbox/dark-v10',
+  default: 'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d',
 };
+
