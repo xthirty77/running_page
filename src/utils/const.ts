@@ -60,8 +60,7 @@ const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
   `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
 
 // not support English for now
-const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
-  '世界因跑步而明亮';
+const CHINESE_LOCATION_INFO_MESSAGE_FIRST = '世界因跑步而明亮';
 const CHINESE_LOCATION_INFO_MESSAGE_SECOND = '不要停下来，不要停下奔跑的脚步';
 
 const INFO_MESSAGE = IS_CHINESE ? CHINESE_INFO_MESSAGE : ENGLISH_INFO_MESSAGE;
@@ -216,8 +215,7 @@ export const MAP_TILE_STYLES = {
     'dark-v11': 'mapbox://styles/mapbox/dark-v11',
     'navigation-night': 'mapbox://styles/mapbox/navigation-night-v1',
     'satellite-streets-v12': 'mapbox://styles/mapbox/satellite-streets-v12',
-    'decimal':'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d'
+    decimal: 'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d',
   },
   default: 'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d',
 };
-

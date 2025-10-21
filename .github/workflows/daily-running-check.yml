@@ -3,14 +3,14 @@ name: 每日跑步检查
 on:
   # 每天北京时间晚上8点运行
   schedule:
-    - cron: '0 15 * * *'  # UTC时间12:00 = 北京时间20:00
+    - cron: '0 15 * * *' # UTC时间12:00 = 北京时间20:00
   # 也可以手动触发
   workflow_dispatch:
 
 jobs:
   check-running:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
@@ -49,7 +49,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.SENDER_EMAIL }}
           password: ${{ secrets.SENDER_PASSWORD }}
-          subject: "🏃‍♂️ 跑步提醒 - 今日还未跑步"
+          subject: '🏃‍♂️ 跑步提醒 - 今日还未跑步'
           to: ${{ secrets.RECIPIENT_EMAIL }}
           from: ${{ secrets.SENDER_EMAIL }}
           body: |
