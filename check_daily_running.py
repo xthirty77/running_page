@@ -6,23 +6,19 @@
 
 import os
 import sys
-import sqlite3
-from datetime import datetime, date, timedelta
+from datetime import datetime, date
 import smtplib
 import requests
-import json
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
 
 # 添加项目路径到sys.path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(current_dir)
 sys.path.append(os.path.join(current_dir, "run_page"))
 
-from run_page.config import SQL_FILE
-from run_page.generator.db import init_db, Activity
+from run_page.config import SQL_FILE  # noqa: E402
+from run_page.generator.db import init_db, Activity  # noqa: E402
 
 
 def check_today_running_records():
