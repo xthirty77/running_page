@@ -1,0 +1,61 @@
+name: 每日跑步检查
+
+on:
+  # 每天北京时间晚上8点运行
+  schedule:
+    - cron: '0 15 * * *'  # UTC时间12:00 = 北京时间20:00
+  # 也可以手动触发
+  workflow_dispatch:
+
+jobs:
+  check-running:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: 设置Python环境
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+
+      - name: 安装依赖
+        run: |
+          pip install -r requirements.txt
+
+      - name: 检查今日跑步记录
+        env:
+          # 邮件配置 - 需要在GitHub仓库的Secrets中设置
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: |
+          python check_daily_running.py
+        continue-on-error: true
+
+      - name: 发送跑步提醒
+        if: failure()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SENDER_EMAIL }}
+          password: ${{ secrets.SENDER_PASSWORD }}
+          subject: "🏃‍♂️ 跑步提醒 - 今日还未跑步"
+          to: ${{ secrets.RECIPIENT_EMAIL }}
+          from: ${{ secrets.SENDER_EMAIL }}
+          body: |
+            <h2>🏃‍♂️ 跑步提醒</h2>
+            <p>今天还没有跑步记录哦！</p>
+            <p>是时候出去跑一跑了，让身体和心灵都得到锻炼！</p>
+            <p>记住：每一次跑步都是对自己的投资！💪</p>
+            <p>加油！你可以的！🚀</p>
+          html: true
