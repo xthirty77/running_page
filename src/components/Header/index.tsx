@@ -15,7 +15,7 @@ const Header = () => {
             </picture>
           </Link>
         </div>
-        <div className="w-3/4 text-right flex items-center justify-end gap-4">
+        <div className="flex w-3/4 items-center justify-end gap-4 text-right">
           {navLinks.map((n, i) => (
             <a
               key={i}

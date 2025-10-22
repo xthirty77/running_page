@@ -13,7 +13,9 @@ const useTheme = () => {
       document.documentElement.setAttribute('data-theme', savedTheme);
     } else {
       // 如果没有保存的主题，检查系统偏好
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const prefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)'
+      ).matches;
       const initialTheme = prefersDark ? 'dark' : 'bright';
       setTheme(initialTheme);
       document.documentElement.setAttribute('data-theme', initialTheme);

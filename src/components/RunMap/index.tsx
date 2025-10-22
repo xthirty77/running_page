@@ -61,7 +61,7 @@ const RunMap = ({
   const mapRef = useRef<MapRef>();
   const [lights, setLights] = useState(PRIVACY_MODE ? false : LIGHTS_ON);
   const keepWhenLightsOff = ['runs2'];
-  
+
   // 根据主题获取地图样式
   const mapStyle = getMapStyleByTheme(
     MAP_TILE_VENDOR,

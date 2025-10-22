@@ -437,17 +437,21 @@ const getMapStyle = (vendor: string, styleName: string, token: string) => {
 };
 
 // 根据主题获取地图样式
-export const getMapStyleByTheme = (vendor: string, theme: string, token: string) => {
+export const getMapStyleByTheme = (
+  vendor: string,
+  theme: string,
+  token: string
+) => {
   const themeStyles = THEME_MAP_STYLES[theme as keyof typeof THEME_MAP_STYLES];
   if (!themeStyles) {
     return getMapStyle(vendor, 'dark-v11', token); // 默认暗黑主题
   }
-  
+
   const styleName = themeStyles[vendor as keyof typeof themeStyles];
   if (!styleName) {
     return getMapStyle(vendor, 'dark-v11', token); // 默认暗黑主题
   }
-  
+
   return getMapStyle(vendor, styleName, token);
 };
 

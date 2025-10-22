@@ -1,6 +1,10 @@
 import React, { useState, useRef } from 'react';
 import Map, { MapRef } from 'react-map-gl';
-import { MAPBOX_TOKEN, MAP_TILE_VENDOR, MAP_TILE_ACCESS_TOKEN } from '@/utils/const';
+import {
+  MAPBOX_TOKEN,
+  MAP_TILE_VENDOR,
+  MAP_TILE_ACCESS_TOKEN,
+} from '@/utils/const';
 import { getMapStyleByTheme } from '@/utils/utils';
 import useTheme from '@/hooks/useTheme';
 import ThemeToggle from '@/components/ThemeToggle';
@@ -11,7 +15,7 @@ const MapThemeDemo: React.FC = () => {
   const [viewState, setViewState] = useState({
     longitude: 116.3974,
     latitude: 39.9093,
-    zoom: 10
+    zoom: 10,
   });
 
   const mapStyle = getMapStyleByTheme(
@@ -21,20 +25,26 @@ const MapThemeDemo: React.FC = () => {
   );
 
   return (
-    <div className="w-full h-96 relative">
+    <div className="relative h-96 w-full">
       {/* 主题切换按钮 */}
-      <div className="absolute top-4 right-4 z-10">
+      <div className="absolute right-4 top-4 z-10">
         <ThemeToggle />
       </div>
-      
+
       {/* 地图信息 */}
-      <div className="absolute top-4 left-4 z-10 bg-white bg-opacity-90 p-3 rounded-lg shadow-lg">
-        <h3 className="font-semibold text-gray-800 mb-2">地图主题演示</h3>
+      <div className="absolute left-4 top-4 z-10 rounded-lg bg-white bg-opacity-90 p-3 shadow-lg">
+        <h3 className="mb-2 font-semibold text-gray-800">地图主题演示</h3>
         <p className="text-sm text-gray-600">
-          当前主题: <span className="font-medium">{theme === 'dark' ? '暗黑' : '明亮'}</span>
+          当前主题:{' '}
+          <span className="font-medium">
+            {theme === 'dark' ? '暗黑' : '明亮'}
+          </span>
         </p>
         <p className="text-sm text-gray-600">
-          地图样式: <span className="font-medium">{mapStyle.split('/').pop()?.split('?')[0] || 'Mapbox'}</span>
+          地图样式:{' '}
+          <span className="font-medium">
+            {mapStyle.split('/').pop()?.split('?')[0] || 'Mapbox'}
+          </span>
         </p>
       </div>
 
@@ -42,7 +52,7 @@ const MapThemeDemo: React.FC = () => {
       <Map
         ref={mapRef}
         {...viewState}
-        onMove={evt => setViewState(evt.viewState)}
+        onMove={(evt) => setViewState(evt.viewState)}
         mapStyle={mapStyle}
         mapboxAccessToken={MAPBOX_TOKEN}
         style={{ width: '100%', height: '100%' }}

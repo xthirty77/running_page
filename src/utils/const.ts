@@ -204,15 +204,11 @@ export const MAP_TILE_STYLES = {
       'https://api.maptiler.com/maps/winter-v2-dark/style.json?key=',
     hybrid: 'https://api.maptiler.com/maps/hybrid/style.json?key=',
     // 明亮主题样式
-    'dataviz-light':
-      'https://api.maptiler.com/maps/dataviz/style.json?key=',
+    'dataviz-light': 'https://api.maptiler.com/maps/dataviz/style.json?key=',
     'basic-light': 'https://api.maptiler.com/maps/basic-v2/style.json?key=',
-    'streets-light':
-      'https://api.maptiler.com/maps/streets-v2/style.json?key=',
-    'outdoor-light':
-      'https://api.maptiler.com/maps/outdoor-v2/style.json?key=',
-    'bright-light':
-      'https://api.maptiler.com/maps/bright-v2/style.json?key=',
+    'streets-light': 'https://api.maptiler.com/maps/streets-v2/style.json?key=',
+    'outdoor-light': 'https://api.maptiler.com/maps/outdoor-v2/style.json?key=',
+    'bright-light': 'https://api.maptiler.com/maps/bright-v2/style.json?key=',
     'topo-light': 'https://api.maptiler.com/maps/topo-v2/style.json?key=',
   },
   stadiamaps: {
