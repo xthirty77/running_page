@@ -20,7 +20,6 @@ import {
   MAP_HEIGHT,
   PRIVACY_MODE,
   LIGHTS_ON,
-  MAP_TILE_STYLE,
   MAP_TILE_VENDOR,
   MAP_TILE_ACCESS_TOKEN,
 } from '@/utils/const';
@@ -28,9 +27,10 @@ import {
   Coordinate,
   IViewState,
   geoJsonForMap,
-  getMapStyle,
+  getMapStyleByTheme,
   isTouchDevice,
 } from '@/utils/utils';
+import useTheme from '@/hooks/useTheme';
 import RunMarker from './RunMarker';
 import RunMapButtons from './RunMapButtons';
 import styles from './style.module.css';
@@ -57,14 +57,29 @@ const RunMap = ({
   thisYear,
 }: IRunMapProps) => {
   const { countries, provinces } = useActivities();
+  const { theme } = useTheme();
   const mapRef = useRef<MapRef>();
   const [lights, setLights] = useState(PRIVACY_MODE ? false : LIGHTS_ON);
   const keepWhenLightsOff = ['runs2'];
-  const mapStyle = getMapStyle(
+  
+  // 根据主题获取地图样式
+  const mapStyle = getMapStyleByTheme(
     MAP_TILE_VENDOR,
-    MAP_TILE_STYLE,
+    theme,
     MAP_TILE_ACCESS_TOKEN
   );
+
+  // 监听主题变化，更新地图样式
+  useEffect(() => {
+    if (mapRef.current) {
+      const newMapStyle = getMapStyleByTheme(
+        MAP_TILE_VENDOR,
+        theme,
+        MAP_TILE_ACCESS_TOKEN
+      );
+      mapRef.current.setStyle(newMapStyle);
+    }
+  }, [theme]);
 
   function switchLayerVisibility(map: MapInstance, lights: boolean) {
     const styleJson = map.getStyle();

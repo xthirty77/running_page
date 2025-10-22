@@ -203,12 +203,28 @@ export const MAP_TILE_STYLES = {
     'winter-dark':
       'https://api.maptiler.com/maps/winter-v2-dark/style.json?key=',
     hybrid: 'https://api.maptiler.com/maps/hybrid/style.json?key=',
+    // 明亮主题样式
+    'dataviz-light':
+      'https://api.maptiler.com/maps/dataviz/style.json?key=',
+    'basic-light': 'https://api.maptiler.com/maps/basic-v2/style.json?key=',
+    'streets-light':
+      'https://api.maptiler.com/maps/streets-v2/style.json?key=',
+    'outdoor-light':
+      'https://api.maptiler.com/maps/outdoor-v2/style.json?key=',
+    'bright-light':
+      'https://api.maptiler.com/maps/bright-v2/style.json?key=',
+    'topo-light': 'https://api.maptiler.com/maps/topo-v2/style.json?key=',
   },
   stadiamaps: {
     alidade_smooth_dark:
       'https://tiles.stadiamaps.com/styles/alidade_smooth_dark.json?api_key=',
     alidade_satellite:
       'https://tiles.stadiamaps.com/styles/alidade_satellite.json?api_key=',
+    // 明亮主题样式
+    alidade_smooth:
+      'https://tiles.stadiamaps.com/styles/alidade_smooth.json?api_key=',
+    alidade_smooth_blue:
+      'https://tiles.stadiamaps.com/styles/alidade_smooth_blue.json?api_key=',
   },
   mapbox: {
     'dark-v10': 'mapbox://styles/mapbox/dark-v10',
@@ -216,6 +232,31 @@ export const MAP_TILE_STYLES = {
     'navigation-night': 'mapbox://styles/mapbox/navigation-night-v1',
     'satellite-streets-v12': 'mapbox://styles/mapbox/satellite-streets-v12',
     decimal: 'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d',
+    // 明亮主题样式
+    'light-v10': 'mapbox://styles/mapbox/light-v10',
+    'light-v11': 'mapbox://styles/mapbox/light-v11',
+    'streets-v11': 'mapbox://styles/mapbox/streets-v11',
+    'outdoors-v11': 'mapbox://styles/mapbox/outdoors-v11',
+    'satellite-v9': 'mapbox://styles/mapbox/satellite-v9',
   },
   default: 'mapbox://styles/fdhrrsf/cmg50hc4i00cn01sm3aqm3c6d',
+};
+
+// 主题相关的地图样式配置
+export const THEME_MAP_STYLES = {
+  dark: {
+    mapbox: 'dark-v11',
+    maptiler: 'dataviz-dark',
+    stadiamaps: 'alidade_smooth_dark',
+  },
+  bright: {
+    mapbox: 'light-v11',
+    maptiler: 'dataviz-light',
+    stadiamaps: 'alidade_smooth',
+  },
+  light: {
+    mapbox: 'light-v11',
+    maptiler: 'dataviz-light',
+    stadiamaps: 'alidade_smooth',
+  },
 };

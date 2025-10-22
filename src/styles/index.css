@@ -88,6 +88,46 @@
   --font-mono: 'IBM Plex Mono', monospace;
 }
 
+[data-theme='bright'] {
+  /* Bright theme with vibrant colors */
+  --color-brand: #2563eb; /* Bright blue primary */
+  --color-secondary: #f59e0b; /* Amber secondary */
+  --color-bg: #ffffff; /* Pure white background */
+  --color-tx: #1f2937; /* Dark gray text */
+  --color-hr: #e5e7eb; /* Light gray divider */
+  --color-selected: #3b82f6; /* Blue selection */
+  --color-run-date: #6b7280; /* Muted gray for dates */
+  --color-run-table-thead: #374151; /* Dark gray header text */
+  --color-run-row-hover-background: #f8fafc; /* Very light blue hover */
+  --color-activity-card: #ffffff; /* White cards with shadow */
+  --font-sans: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+/* Bright theme specific styles */
+[data-theme='bright'] .activityCard {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+[data-theme='bright'] .activityCard:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-color: #3b82f6;
+}
+
+[data-theme='bright'] .smallHomeButton {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+[data-theme='bright'] .smallHomeButton:hover {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+  transform: translateY(-1px);
+}
+
 @layer base {
   html,
   body {

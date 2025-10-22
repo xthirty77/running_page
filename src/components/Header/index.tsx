@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Header = () => {
   const { logo, siteUrl, navLinks } = useSiteMetadata();
@@ -14,7 +15,7 @@ const Header = () => {
             </picture>
           </Link>
         </div>
-        <div className="w-3/4 text-right">
+        <div className="w-3/4 text-right flex items-center justify-end gap-4">
           {navLinks.map((n, i) => (
             <a
               key={i}
@@ -24,6 +25,7 @@ const Header = () => {
               {n.name}
             </a>
           ))}
+          <ThemeToggle />
         </div>
       </nav>
     </>

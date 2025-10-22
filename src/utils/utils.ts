@@ -18,6 +18,7 @@ import {
   RUN_COLOR,
   RUN_TRAIL_COLOR,
   MAP_TILE_STYLES,
+  THEME_MAP_STYLES,
 } from './const';
 import {
   FeatureCollection,
@@ -433,6 +434,21 @@ const getMapStyle = (vendor: string, styleName: string, token: string) => {
     return style + token;
   }
   return style;
+};
+
+// 根据主题获取地图样式
+export const getMapStyleByTheme = (vendor: string, theme: string, token: string) => {
+  const themeStyles = THEME_MAP_STYLES[theme as keyof typeof THEME_MAP_STYLES];
+  if (!themeStyles) {
+    return getMapStyle(vendor, 'dark-v11', token); // 默认暗黑主题
+  }
+  
+  const styleName = themeStyles[vendor as keyof typeof themeStyles];
+  if (!styleName) {
+    return getMapStyle(vendor, 'dark-v11', token); // 默认暗黑主题
+  }
+  
+  return getMapStyle(vendor, styleName, token);
 };
 
 const isTouchDevice = () =>
