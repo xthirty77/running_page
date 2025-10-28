@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export type Theme = 'dark' | 'bright' | 'light';
 
-const useTheme = () => {
+export const useTheme = () => {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {

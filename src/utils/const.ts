@@ -96,6 +96,8 @@ const WEEKLY_TITLE = IS_CHINESE ? 'Week' : 'Weekly';
 const DAILY_TITLE = IS_CHINESE ? 'Day' : 'Daily';
 const LOCATION_TITLE = IS_CHINESE ? 'Location' : 'Location';
 const HOME_PAGE_TITLE = IS_CHINESE ? '首页' : 'Home';
+// loading text for async UI states
+const LOADING_TEXT = IS_CHINESE ? '加载中…' : 'Loading...';
 
 const ACTIVITY_TYPES = {
   RUN_GENERIC_TITLE,
@@ -157,6 +159,7 @@ export {
   ACTIVITY_TYPES,
   ACTIVITY_TOTAL,
   HOME_PAGE_TITLE,
+  LOADING_TEXT,
 };
 
 const nike = 'rgb(191, 241, 251)'; // if you want change the main color change here src/styles/variables.scss

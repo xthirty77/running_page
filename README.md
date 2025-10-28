@@ -12,7 +12,6 @@
    ```
 
 5. 2024.09.29: Added `Elevation Gain` field, If you forked the project before this update, please run the following command:
-
    - To resolve errors: `sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: activities.elevation_gain`
    - If you don't have a local environment, set `RUN_TYPE` to `db_updater` in the `.github/workflows/run_data_sync.yml` file once then change back.
 
@@ -23,6 +22,7 @@
    - For old data: To include `Elevation Gain` for past activities, perform a full reimport.
    - To show the 'Elevation Gain' column, modify `SHOW_ELEVATION_GAIN` in `src/utils/const.ts`
    - note: `Elevation Gain` may be inaccurate. You can use Strava's "Correct Elevation" or Garmin's "Elev Corrections" feature for more precise data.
+6. It cost me a lot money, so please do not use my mapbox token more check this [issue](https://github.com/yihong0618/running_page/issues/643)
 
 <p align="center">
   <img width="150" src="https://raw.githubusercontent.com/shaonianche/gallery/master/running_page/running_page_logo.png" />
@@ -125,6 +125,9 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 | [Daniel](https://danielyu316.github.io/running_page) | <https://danielyu316.github.io/running_page/>  | Codoon      |
 | [arthurfsy2](https://github.com/arthurfsy2)          | <https://fsy.4a1801.life>                      | Garmin      |
 | [JMGutiH](https://github.com/JMGutiH)                | <https://jmgutih.github.io/workouts_page/>     | Strava      |
+| [Bolyn](https://run.wbolyn.com)                      | <https://run.wbolyn.com>                       | Coros       |
+| [LeiChen](https://github.com/xthirty77)              | <https://xthirty77.github.io/running_page/>    | Coros       |
+| [itrunner](https://itrunner.cn)                      | <https://itrunner.cn>                          | Garmin      |
 
 </details>
 
@@ -161,7 +164,11 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 - **[Gpx_to_Strava(upload all gpx data to strava)](#gpx_to_strava)**
 - **[Garmin_to_Strava(Using Garmin Run, Strava backup data)](#garmin_to_strava)**
 - **[Strava_to_Garmin(Using Strava Run, Garmin backup data)](#strava_to_garmin)**
-- **[Coros](#coros)**
+- **[COROS](#coros)**
+- **[iGPSPORT](#igpsport)**
+- **[Joyrun](#joyrun)**
+- **[Komoot](#komoot)**
+- **[Onelap](#onelap)**
 
 ## Download
 
@@ -641,7 +648,6 @@ python run_page/nike_sync.py eyJhbGciThiMTItNGIw******
    ```
 
    References：
-
    - <https://developers.strava.com/docs/getting-started>
    - <https://github.com/barrald/strava-uploader>
    - <https://github.com/strava/go.strava>
@@ -807,10 +813,10 @@ python run_page/nike_to_strava_sync.py eyJhbGciThiMTItNGIw******  xxx xxx xxx
 
 </details>
 
-### Coros
+### COROS
 
 <details>
-<summary>Get your Coros data</summary>
+<summary>Get your COROS data</summary>
 
 <br>
 
@@ -829,6 +835,73 @@ python run_page/coros_sync.py 'your coros account' 'your coros password'
 - configure the `COROS_ACCOUNT` , `COROS_PASSWORD`
 
   ![github-action](https://img3.uploadhouse.com/fileuploads/30980/3098042335f8995623f8b50776c4fad4cf7fff8d.png)
+
+</details>
+
+### iGPSPORT
+
+<details>
+<summary>Get your iGPSPORT data</summary>
+
+#### Enter the following command in the terminal
+
+```bash
+python3 run_page/igpsport_sync.py 'your igpsport phone' 'password' --with-gpx
+```
+
+You can replace `with-gpx` with `with-fit` to acquire data in fit format.
+
+</details>
+
+### Joyrun
+
+<details>
+<summary>Get your Joyrun data</summary>
+
+#### Enter the following command in the terminal
+
+```bash
+python3 run_page/joyrun_sync.py 'your joyrun phone' 'verication code' --with-gpx
+```
+
+You can replace `with-gpx` with `with-tcx` to acquire data in tcx format.
+
+</details>
+
+### Komoot
+
+<details>
+<summary>Get your Komoot data</summary>
+
+#### Enter the following command in the terminal
+
+```bash
+python3 run_page/komoot_sync.py 'your komoot email' 'password' --with-gpx
+```
+
+| Parameter | Description |
+| --- | --- |
+| `mail` | Login using specified email address |
+| `password` | Use provided password and skip interactive prompt |
+| `-n`, `--anonymous` | Skip authentication, no interactive prompt (valid only with `-d`) |
+| `--with-gpx` | Download all tours as GPX |
+| `-r`, `--remove-deleted` | Remove GPX files (from `--output` dir) without corresponding tour in Komoot (deleted and previous versions) |
+| `--start-date=YYYY-MM-DD` | Filter tours on or after specified date |
+| `--end-date=YYYY-MM-DD` | Filter tours on or before specified date |
+| `-e`, `--no-poi` | Do not include highlights as POIs |
+
+</details>
+
+### Onelap
+
+<details>
+<summary>Get your Onelap data</summary>
+
+#### Enter the following command in the terminal
+
+```bash
+python3 run_page/onelap_sync.py 'your onelap phone' 'password' --with-fit
+```
 
 </details>
 
@@ -995,12 +1068,10 @@ For more display effects, see:
 1. Go to repository's `Settings -> GitHub Pages -> Source`, choose `GitHub Actions`
 
 2. Go to the repository's `Actions -> Workflows -> All Workflows`, choose `Run Data Sync` from the left panel, and click `Run workflow`.
-
    - The `Run Data Sync` will update data and then trigger the `Publish GitHub Pages` workflow
    - Make sure the workflow runs without errors.
 
 3. Open your website to check on the results
-
    - note if the website doesn't reflect the latest data, please refresh it by `F5`.
    - Some browsers (e.g. Chrome) won't refresh if there is a cache, you then need to use `Ctrl+F5` (Windows) or `Shift+Cmd+r` (Mac) to force clearing the cache and reload the page.
 
@@ -1064,7 +1135,6 @@ Take the keep app as an example. Close the app after running, and then automatic
    <center><img src="https://cdn.jujimeizuo.cn/blog/2023/10/get-action-id.jpg" alt="get-action-id"></center>
 
 2. Binding shortcut instruction
-
    1. Get it via icloud [running-page-shortcuts-template](https://www.icloud.com/shortcuts/4a5807a98b9a4e359815ff179c62bacb)
 
    2. Modify the dictionary parameters in the following figure
